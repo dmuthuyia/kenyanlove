@@ -1,0 +1,15 @@
+.divfold57 
+	.divfold50
+		%h1= @blog.title
+		%p.username
+		= image_tag @blog.blog_img.url
+		= simple_format(@blog.body)
+		%p= @blog.url
+			
+		%br
+			
+		%p
+			- if @blog.user == current_user
+				= link_to "Edit", edit_blog_path(@blog)
+				= link_to "Destroy", blog_path(@blog), method: :delete, data: { confirm: "blog will be deleted" }
+

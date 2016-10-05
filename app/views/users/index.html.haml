@@ -1,0 +1,17 @@
+.row
+	.divfold52a
+		- @users.each do |user|
+			.col-md-3
+				.fireplace2singles
+					= link_to image_tag user.mypic.url
+					%h3= link_to user.FirstName, user
+					%hr
+					= user.Age
+					%br
+					.divfold56singles
+						Location:
+						%em
+							= user.City
+		
+.divfold50a
+	= will_paginate @users

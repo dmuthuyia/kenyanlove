@@ -1,0 +1,37 @@
+
+<div class=".divfold50 ">
+
+	<p> Hello <%= @thsfirstname %>, </p>
+
+	<p> <%= @myfirstname %> has sent you a can-I message </p>
+	<p> click on the link below to also send a can-I date to <%= @myfirstname %> for us to set up a date for you.
+	<br>
+	you can chose to reject/ignore <%= @myfirstname %> by not sending a can-I back </p>
+
+
+
+	<p>
+	<br><%= image_url(@current_usery.mypic.url, size: "100x150") %>
+	<p><%= image_tag attachments['download.png'].url -%></p>
+	<p>image_tag(@current_usery.mypic.url || 'none.png')</p>
+
+	<br>user_id: <%= @myuser_id %>
+
+	
+	<br>Gender: <%= @myGender %>
+
+	
+	<br>UserName: <%= @myUserName %>
+
+	
+	<br>Age: <%= @myAge %>
+
+	
+	<br>City:<%= @myCity %>
+
+	
+	<br>Country: <%= @myCountry %>
+
+	<br> <%= link_to "see #{@myfirstname}'s full profile and send a can-I date back", user_url(@current_usery) %> </p>
+
+</div>

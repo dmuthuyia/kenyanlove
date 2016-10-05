@@ -1,0 +1,147 @@
+.divfold57 
+	.col-md-7
+		.fireplace2showsingles
+			%h1= current_user.UserName
+			%p.username
+			= image_tag current_user.mypic.url
+			= simple_format(current_user.ShortBio)
+			%br
+			= link_to like_user_path(current_user), method: :get, class: "data" do
+				%i.fa.fa-thumbs-o-up
+				= pluralize(current_user.get_upvotes.size, "like")
+			= link_to dislike_user_path(current_user), method: :get, class: "data" do
+				%i.fa.fa-thumbs-o-down
+				= pluralize(current_user.get_downvotes.size, "Disike")
+			
+			g
+			%p.data
+
+				
+			%p
+				- if current_user.id == current_user
+					= link_to "Edit", edit_user_path(current_user)
+					= link_to "Destroy", user_path(current_user), method: :delete, data: { confirm: "user will be deleted" }
+
+
+
+
+			%p
+			%h1 
+				Code:
+				= current_user.id 
+			%p
+			User Name:
+			%p 
+			.divfold56singles 
+				= current_user.UserName
+			%p
+			First Name:
+			%p 
+			.divfold56singles 
+				= current_user.FirstName
+			%p
+			Last Name:
+			%p 
+			.divfold56singles 
+				= current_user.LastName
+			%p
+			email:
+			%p 
+			.divfold56singles 
+				= current_user.email
+			%p
+			Gender:
+			%p
+			.divfold56singles   
+				- if current_user.is_female = 'true'
+					Female
+				- else
+					Male
+			%p
+			About me in brief:
+			.divfold56singles
+				= current_user.ShortBio
+			%p
+			Age:
+			%p 
+			.divfold56singles 
+				= current_user.Age
+			%p
+			Location:
+			%p
+			.divfold56singles  
+				= current_user.City
+			%p
+			Country:
+			%p
+			.divfold56singles 
+				= current_user.Country
+			%p
+			Race:
+			%p	
+			.divfold56singles 
+				= current_user.Race
+			%p
+			Religion:
+			%p
+			.divfold56singles  
+				= current_user.Religion
+			%p
+			Hobby:
+			%p	
+			.divfold56singles
+				= current_user.Hobby
+			%p	
+			About me:
+			%p
+			.divfold56singles  
+				= current_user.LongBio
+			%p
+			I am looking for:
+			%p
+			.divfold56singles 
+				= current_user.LookingFor
+			%p
+			would consider moving?:
+			%p	
+			.divfold56singles   
+				- if current_user.CanMove = 'false'
+					No
+				- else
+					Yes
+			%p
+			= link_to 'Edit My profile', edit_user_registration_path, { class: "btn btn-info" }
+
+	.col-md-3
+		.fireplace2showrandomsingles
+			= link_to (image_tag @random_user.mypic.url), user_path(@random_user)
+					
+			%h2= link_to "Code: #{@random_user.id}", user_path(@random_user)
+			%span
+				%i.fa.fa-thumbs-o-up
+				= @random_user.get_likes.size
+
+
+
+		- @random_users.each do |user|
+			.fireplace2showrandomsingles
+				= link_to image_tag user.mypic.url
+				%h3= link_to user.FirstName, user
+				%hr
+				= user.Age
+				%br
+				.divfold56singles
+					Location:
+					%em
+						= user.City
+
+
+
+
+.divfold57 	
+	.col-md-7
+		.divfold56singles
+			= link_to "Contact us"
+	.col-md-3
+		.divfold56singles
+			= link_to "See Our Staff"

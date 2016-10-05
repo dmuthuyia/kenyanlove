@@ -1,0 +1,4 @@
+<p> <%= @current_user.email %> has posted a new article: </p>
+<p> <%= @title %> </p>
+<%= link_to 'Read', blog_url(@blog) %> </p>
+<p> <%= time_ago_in_words(@btime) %> Ago</p>

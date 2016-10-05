@@ -1,0 +1,12 @@
+
+= simple_form_for @send_us_mail do |f|
+	= f.input :FirstName, :label => "First Name"
+	= f.input :LastName, :label => "Last Name"
+	= f.input :phone
+	= f.input :email, :label => "Your email"
+	= f.input :subject
+	= f.input :message
+	= f.input :file1, :label => "Upload a file"
+
+	= f.submit "Send mail"
+

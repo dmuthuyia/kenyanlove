@@ -1,0 +1,14 @@
+.divfold50
+	- @blogs.each do |blog|
+		.divfold50
+			.col-md-3
+				.trybsindexnews
+					= link_to (image_tag blog.blog_img.url(:small))
+			.col-md-9
+				%h3= link_to blog.title, blog
+				= blog.body.first(110) + " " + "....."
+				%br
+				= link_to "read details", blog
+		%hr
+
+				

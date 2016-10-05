@@ -1,0 +1,9 @@
+<h3 class="text-center">prods for Sale</h3>
+
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <% @prods.each do |prod| %>
+      <%= render "prod_row", prod: prod, order_item: @order_item %>
+    <% end %>
+  </div>
+</div>

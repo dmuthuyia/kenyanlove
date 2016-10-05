@@ -1,0 +1,117 @@
+.divfold57 
+	.col-md-7
+		.fireplace2showsingles
+			%h1= @user.UserName
+			%p.username
+			= image_tag @user.mypic.url
+			= simple_format(@user.ShortBio)
+			%br
+			= link_to like_user_path(@user), method: :get, class: "data" do
+				%i.fa.fa-thumbs-o-up
+				= pluralize(@user.get_upvotes.size, "like")
+			= link_to dislike_user_path(@user), method: :get, class: "data" do
+				%i.fa.fa-thumbs-o-down
+				= pluralize(@user.get_downvotes.size, "Disike")
+	
+			g
+			%p.data
+
+		
+			= link_to "Send a Can-I", {:controller => :cans, :action => :sending_can, :id => @user.id}, :class => "btn btn-primary"
+				
+			%p
+				- if @user.id == current_user
+					= link_to "Edit", edit_user_path(@user)
+					= link_to "Destroy", user_path(@user), method: :delete, data: { confirm: "user will be deleted" }
+
+
+
+
+			%p
+			%h1 
+				Code:
+				= @user.id 
+			%p
+			Gender:
+			%p
+			.divfold56singles   
+				- if @user.is_female = 'true'
+					Female
+				- else
+					Male
+			%p
+			Age:
+			%p 
+			.divfold56singles 
+				= @user.Age
+			%p
+			Location:
+			%p
+			.divfold56singles  
+				= @user.City
+			%p
+			Country:
+			%p
+			.divfold56singles 
+				= @user.Country
+			%p
+			Race:
+			%p	
+			.divfold56singles 
+				= @user.Race
+			%p
+			Religion:
+			%p
+			.divfold56singles  
+				= @user.Religion
+			%p
+			Hobby:
+			%p	
+			.divfold56singles
+				= @user.Hobby
+			%p
+			About me:
+			%p
+			.divfold56singles  
+				= @user.LongBio
+			%p
+			I am looking for:
+			%p
+			.divfold56singles 
+				= @user.LookingFor
+			%p
+			would consider moving?:
+			%p	
+			.divfold56singles   
+				- if @user.CanMove = 'false'
+					No
+				- else
+					Yes
+
+	.col-md-3
+		.fireplace2showrandomsingles
+			= link_to (image_tag @random_user.mypic.url), user_path(@random_user)
+					
+			%h2= link_to "Code: #{@random_user.id}", user_path(@random_user)
+			%span
+				%i.fa.fa-thumbs-o-up
+				= @random_user.get_likes.size
+
+
+
+		- @random_users.each do |user|
+			.fireplace2showrandomsingles
+				= link_to image_tag user.mypic.url
+				%h3= link_to user.FirstName, user
+				%hr
+				= user.Age
+				%br
+				.divfold56singles
+					Location:
+					%em
+						= user.City
+
+
+
+
+.divfold57 	

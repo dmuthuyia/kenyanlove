@@ -1,0 +1,16 @@
+= render 'dds/malesbuttons'
+.col-md-12
+	.row
+		.divfold52a
+			- @males.each do |male|
+				.col-md-3
+					.fireplace2singles
+						= link_to image_tag male.mypic.url
+						%h3= link_to male.FirstName, male
+						%hr
+						= male.Age
+						%br
+						.divfold56singles
+							Location:
+							%em
+								= male.City

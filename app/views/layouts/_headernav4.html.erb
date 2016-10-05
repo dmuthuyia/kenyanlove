@@ -1,0 +1,50 @@
+ <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to "Kenyan Love", root_path, class: "navbar-brand" %>
+      </div>
+      <ul class="navbar-nav nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "Payments", payments_path %></li>
+          <li><%= link_to "My profile", my_profile_path %></li>
+          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <% end %>
+
+      </ul>
+      <% if user_signed_in? %>
+        
+
+      <% end %>
+      <ul class="navbar-nav nav navbar-left">
+
+          <li><%= link_to "About us", about_us_path %></li>
+
+
+
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Brouse singles<span class="caret"></span></a>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li><%= link_to "All singles", users_path %></li>              
+                    <li><%= link_to "Females", females_path %></li>
+                    <li><%= link_to "Males", males_path %></li>
+                 
+                </ul>
+                </li>
+
+          <li><%= link_to "Our Blog", blogs_path %></li>
+          <li><%= link_to "Buy products", products_path %></li>
+          <li><%= link_to "Careers", careers_path %></li>
+
+      </ul>
+
+      <ul class="navbar-nav nav navbar-right">
+          <li><%= link_to "Contact us", send_us_mails_path %></li>
+
+      </ul>
+
+    </div>
+  </nav>

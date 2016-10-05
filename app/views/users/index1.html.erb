@@ -1,0 +1,9 @@
+<div class="divfold50">
+<%= link_to current_user.UserName, edit_user_registration_path %>
+
+<% @users.each do |user|%>
+	<%= user.email %> <br>
+	<%= user.FirstName %> <br>
+<% end %>
+
+</div>
