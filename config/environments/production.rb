@@ -99,8 +99,8 @@ Rails.application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => 'consignnyc', 
-      :access_key_id => ENV['AKIAJWPITLQBXV34AZDA'],
-      :secret_access_key => ENV['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']
+      :access_key_id => ENV[''],
+      :secret_access_key => ENV['']
     }
   }
 
